@@ -27,7 +27,7 @@ export const filterProductByRandomField = (infoProduct) => async (dispatch) => {
 
 export const getAllProduct = () => async (dispatch) => {
   try {
-    const { data } = await axios.get(`http://localhost:5000/products/`);
+    const { data } = await axios.get(`/products/`);
     dispatch({ type: "GET_ALL_PRODUCT", payload: data });
   } catch (error) {
     dispatch({ type: "GET_ALL_PRODUCT_FAIL", payload: error.message });
@@ -73,7 +73,7 @@ export const paginationProduct = (page) => async (dispatch) => {
 export const getproductById = (id) => async (dispatch) => {
   try {
     const { data } = await axios.get(
-      `http://localhost:5000/products/detail/${id}`
+      `/products/detail/${id}`
     );
     dispatch({ type: "GET_PRODUCT_BY_ID", payload: data });
   } catch (error) {
@@ -94,7 +94,7 @@ export const saveProduct = (product) => async (dispatch, getState) => {
     if (!product.get('_id')) {
       console.log("create");
       const { data } = await axios.post(
-        "http://localhost:5000/products/create",
+        "/products/create",
         product,
         {
           headers: {
@@ -107,7 +107,7 @@ export const saveProduct = (product) => async (dispatch, getState) => {
     } else {
       console.log("update");
       const { data } = await axios.put(
-        `http://localhost:5000/products/update`,
+        `/products/update`,
         product,
         {
           headers: {
@@ -130,7 +130,7 @@ export const DeleteProduct = (productId) => async (dispatch, getState) => {
       userSignin: { userInfo },
     } = getState();
     const { data } = await axios.delete(
-      `http://localhost:5000/products/delete/${productId}`,
+      `/products/delete/${productId}`,
       {
         headers: {
           Authorization: `Bearer ${userInfo.token}`,
@@ -147,7 +147,7 @@ export const DeleteProduct = (productId) => async (dispatch, getState) => {
 export const searchProduct = (name) => async (dispatch, getState) => {
   try {
     const { data } = await axios.get(
-      `http://localhost:5000/products/search/product?name=${name}`
+      `/products/search/product?name=${name}`
     );
     dispatch({ type: "SEARCH_PRODUCT", payload: data });
   } catch (error) {
@@ -158,7 +158,7 @@ export const searchProduct = (name) => async (dispatch, getState) => {
 export const reviewProduct = (id, review) => async (dispatch, getState) => {
   try {
     const { data } = await axios.post(
-      `http://localhost:5000/products/rate/${id}`,
+      `/products/rate/${id}`,
       review
     );
     dispatch({ type: "REVIEW_PRODUCT", payload: data });
@@ -170,7 +170,7 @@ export const reviewProduct = (id, review) => async (dispatch, getState) => {
 export const commentProduct = (id, comment) => async (dispatch, getState) => {
   try {
     const { data } = await axios.post(
-      `http://localhost:5000/products/comment/${id}`,
+      `/products/comment/${id}`,
       comment
     );
     dispatch({ type: "COMMENT_PRODUCT", payload: data });
@@ -182,7 +182,7 @@ export const commentProduct = (id, comment) => async (dispatch, getState) => {
 export const repCommentProduct = (id, comment) => async (dispatch, getState) => {
     try {
       const { data } = await axios.post(
-        `http://localhost:5000/products/rep/comment/${id}`,
+        `/products/rep/comment/${id}`,
         comment
       );
       dispatch({ type: "REP_COMMENT_PRODUCT", payload: data });
@@ -194,7 +194,7 @@ export const repCommentProduct = (id, comment) => async (dispatch, getState) => 
   export const pinCommentProduct = (id, comment) => async (dispatch, getState) => {
     try {
       const { data } = await axios.post(
-        `http://localhost:5000/products/pin/comment/${id}`, comment
+        `/products/pin/comment/${id}`, comment
       );
       dispatch({ type: "PIN_COMMENT_PRODUCT", payload: data });
     } catch (error) {
@@ -209,7 +209,7 @@ export const BlogProduct = (id, blog) => async (dispatch, getState) => {
   } = getState();
   try {
     const { data } = await axios.post(
-      `http://localhost:5000/products/blog/${id}`,
+      `/products/blog/${id}`,
       blog,
       {
         headers: {

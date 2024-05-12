@@ -3,7 +3,7 @@ import { axiosClient } from "../services/config.services";
 
 export const login = (user) => async (dispatch) => {
     try {
-      const {data} = await axios.post('http://localhost:5000/user/login', user)
+      const {data} = await axios.post('/user/login', user)
       console.log(data)
       dispatch({ type: 'USER_LOGIN_SUCCESS', payload: data });
       localStorage.setItem('userInfo', JSON.stringify(data));
@@ -16,7 +16,7 @@ export const login = (user) => async (dispatch) => {
 
 export const SignupUser = (user) => async (dispatch) => {
     try {
-      const {data} = await axios.post('http://localhost:5000/user/register', user)
+      const {data} = await axios.post('/user/register', user)
       console.log(data)
       localStorage.setItem('userInfo', JSON.stringify(data));
       dispatch({ type: 'USER_SIGNUP_SUCCESS', payload: data });
@@ -37,7 +37,7 @@ export const getAllUser = () => async (dispatch, getState) => {
     userSignin: {userInfo},
   } = getState()
   try {
-    const {data} = await  axios.get('http://localhost:5000/user')
+    const {data} = await  axios.get('/user')
     console.log(data)
     dispatch({type: 'GET_ALL_USER', payload: data})
   } catch (error) {
@@ -48,7 +48,7 @@ export const getAllUser = () => async (dispatch, getState) => {
 export const getUserById = (id) => async (dispatch) => {
   try {
     const { data } = await axios.get(
-      `http://localhost:5000/user/detail/${id}`
+      `/user/detail/${id}`
     );
     dispatch({ type: "GET_USER_BY_ID", payload: data });
   } catch (error) {
@@ -64,7 +64,7 @@ export const saveUser = (user) => async (dispatch, getState) => {
 
     console.log("update");
     const { data } = await axios.put(
-      `http://localhost:5000/user/update`,
+      `/user/update`,
       user,
       {
         headers: {
@@ -84,7 +84,7 @@ export const deleteUser = (userId) => async (dispatch, getState) => {
     userSignin: {userInfo},
   } = getState()
   try {
-    const {data} = await axios.delete(`http://localhost:5000/user/delete/${userId}`)
+    const {data} = await axios.delete(`/user/delete/${userId}`)
     dispatch({type: 'DELETE_USER', payload: data})
   } catch (error) {
     dispatch({type: 'DELETE_USER_FAIL', error: error.message})

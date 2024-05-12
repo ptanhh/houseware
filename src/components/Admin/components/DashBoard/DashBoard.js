@@ -24,7 +24,7 @@ export default function DashBoard(props) {
     dispatch(getAllProduct());
     const getData = async () => {
       try {
-        const response = await axios.post(`http://localhost:5000/products/count`);
+        const response = await axios.post(`/products/count`);
         if (response.data && response.data.count !== undefined) {
           setProductCount(response.data.count);
         } else {
@@ -42,7 +42,7 @@ export default function DashBoard(props) {
   useEffect(() => {
     const fetchDailyAccess = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/user/getNewUser`);
+        const response = await axios.get(`/user/getNewUser`);
         if (response.data && response.data.count !== undefined) {
           setNewUser(response.data.count);
         } else {
@@ -62,7 +62,7 @@ export default function DashBoard(props) {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.post(`http://localhost:5000/order/doanhthuthang`);
+        const response = await axios.post(`/order/doanhthuthang`);
         setDoanhThuThang(response.data.currentMonthRevenue);
       } catch (error) {
         setError(error.message || 'Có lỗi xảy ra khi lấy dữ liệu.');

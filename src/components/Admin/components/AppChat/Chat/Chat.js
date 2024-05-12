@@ -17,7 +17,7 @@ function Chat(props) {
     if (!idConversation) return;
     const getAllMessageByConversation = async () => {
       const { data } = await axios.get(
-        `http://localhost:5000/chat/message?idConversation=${idConversation}`
+        `/chat/message?idConversation=${idConversation}`
       );
       console.log(data);
       setMessages(data.messageList);
@@ -57,7 +57,7 @@ function Chat(props) {
       idConversation,
     };
     const { data } = await axios.post(
-      "http://localhost:5000/chat/save",
+      "/chat/save",
       payload
     );
     socket.emit('chat', data);

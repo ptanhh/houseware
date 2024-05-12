@@ -12,7 +12,7 @@ export default function ChartDashBoard() {
   useEffect(() => {
     dispatch(getAllOrder());
     const getData = async () =>{
-      const response = await axios.post(`http://localhost:5000/order/doanhthu`);
+      const response = await axios.post(`/order/doanhthu`);
       setDoanhThu(response.data)
     }
     getData()

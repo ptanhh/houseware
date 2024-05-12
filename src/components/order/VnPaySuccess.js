@@ -11,7 +11,7 @@ export default function VnPaySuccess() {
     const getResultVNPay = async () => {
       const query = location.search;
       const { data } = await axios.get(
-        `http://localhost:5000/payment/vnpay_return${query}`
+        `/payment/vnpay_return${query}`
       );
       console.log(data.code);
     };

@@ -13,7 +13,7 @@ export const createOrder = (order) => async (dispatch, getState) => {
     } = getState();
     console.log(order);
     const { data } = await axios.post(
-      "http://localhost:5000/order/create",
+      "/order/create",
       order,
       {
         headers: {
@@ -36,7 +36,7 @@ export const updateOrder = (orderId, order) => async (dispatch, getState) => {
     } = getState();
     
     const { data } = await axios.post(
-      `http://localhost:5000/order/update/${orderId}`,
+      `/order/update/${orderId}`,
       order,
       {
         headers: {
@@ -53,7 +53,7 @@ export const updateOrder = (orderId, order) => async (dispatch, getState) => {
 export const cancelOrder = (orderId) => async (dispatch, getState) => {
   try {
     const { data } = await axios.post(
-      `http://localhost:5000/order/cancel/${orderId}`,
+      `/order/cancel/${orderId}`,
     );
     dispatch({ type: "CANCEL_ORDER", payload: data });
   } catch (error) {
@@ -66,7 +66,7 @@ export const getAllOrder = () => async (dispatch, getState) => {
     const {
       userSignin: { userInfo },
     } = getState();
-    const { data } = await axios.get(`http://localhost:5000/order/`, {
+    const { data } = await axios.get(`/order/`, {
       headers: {
         Authorization: `Bearer ${userInfo.token}`,
       },
@@ -79,7 +79,7 @@ export const getAllOrder = () => async (dispatch, getState) => {
 
 export const getDoanhThu = () => async () => {
   try{
-    const response = await axios.post(`http://localhost:5000/order/doanhthu`);
+    const response = await axios.post(`/order/doanhthu`);
     return response.data;
   } catch(error){
     console.log(error);
@@ -95,7 +95,7 @@ export const RemoveAllOrder = () => async (dispatch, getState) => {
 //     const {
 //       userSignin: { userInfo },
 //     } = getState();
-//     const { data } = await axios.get(`http://localhost:5000/order/orderPaypal`, {
+//     const { data } = await axios.get(`/order/orderPaypal`, {
 //       headers: {
 //         Authorization: `Bearer ${userInfo.token}`,
 //       },
@@ -112,7 +112,7 @@ export const GetAllOrderPendding = () => async (dispatch, getState) => {
       userSignin: { userInfo },
     } = getState();
     const { data } = await axios.get(
-      `http://localhost:5000/order/orderPendding`,
+      `/order/orderPendding`,
       {
         headers: {
           Authorization: `Bearer ${userInfo.token}`,
@@ -131,7 +131,7 @@ export const GetAllOrderShipping = () => async (dispatch, getState) => {
       userSignin: { userInfo },
     } = getState();
     const { data } = await axios.get(
-      `http://localhost:5000/order/orderShipping`,
+      `/order/orderShipping`,
       {
         headers: {
           Authorization: `Bearer ${userInfo.token}`,
@@ -149,7 +149,7 @@ export const GetAllOrderPaid = () => async (dispatch, getState) => {
     const {
       userSignin: { userInfo },
     } = getState();
-    const { data } = await axios.get(`http://localhost:5000/order/orderPaid`, {
+    const { data } = await axios.get(`/order/orderPaid`, {
       headers: {
         Authorization: `Bearer ${userInfo.token}`,
       },
@@ -167,7 +167,7 @@ export const deleteOrder = (orderId) => async (dispatch, getState) => {
     } = getState();
     console.log("callapi delete");
     const { data } = await axios.delete(
-      `http://localhost:5000/order/delete/${orderId}`,
+      `/order/delete/${orderId}`,
       {
         headers: {
           Authorization: `Bearer ${userInfo.token}`,
@@ -187,7 +187,7 @@ export const ShippingOrder = (orderId) => async (dispatch, getState) => {
     } = getState();
 
     const { data } = await axios.put(
-      `http://localhost:5000/order/shipping/${orderId}`,
+      `/order/shipping/${orderId}`,
       {
         headers: {
           Authorization: `Bearer ${userInfo.token}`,
@@ -207,7 +207,7 @@ export const PaidOrder = (orderId) => async (dispatch, getState) => {
     } = getState();
 
     const { data } = await axios.put(
-      `http://localhost:5000/order/paid/${orderId}`,
+      `/order/paid/${orderId}`,
       {
         headers: {
           Authorization: `Bearer ${userInfo.token}`,
@@ -281,7 +281,7 @@ export const getOrderByUser = (idUser) => async (dispatch, getState) => {
     const {
       userSignin: { userInfo },
     } = getState();
-    const { data } = await axios.get(`http://localhost:5000/order/${idUser}`, {
+    const { data } = await axios.get(`/order/${idUser}`, {
       headers: {
         Authorization: `Bearer ${userInfo.token}`,
       },
@@ -299,7 +299,7 @@ export const getOrderPenddingByUser = (idUser) => async (dispatch, getState) => 
     const {
       userSignin: { userInfo },
     } = getState();
-    const { data } = await axios.get(`http://localhost:5000/order/orderPendding/${idUser}`, {
+    const { data } = await axios.get(`/order/orderPendding/${idUser}`, {
       headers: {
         Authorization: `Bearer ${userInfo.token}`,
       },
@@ -315,7 +315,7 @@ export const getOrderShippingByUser = (idUser) => async (dispatch, getState) => 
     const {
       userSignin: { userInfo },
     } = getState();
-    const { data } = await axios.get(`http://localhost:5000/order/orderShipping/${idUser}`, {
+    const { data } = await axios.get(`/order/orderShipping/${idUser}`, {
       headers: {
         Authorization: `Bearer ${userInfo.token}`,
       },
@@ -331,7 +331,7 @@ export const getOrderPaidByUser = (idUser) => async (dispatch, getState) => {
     const {
       userSignin: { userInfo },
     } = getState();
-    const { data } = await axios.get(`http://localhost:5000/order/orderPaid/${idUser}`, {
+    const { data } = await axios.get(`/order/orderPaid/${idUser}`, {
       headers: {
         Authorization: `Bearer ${userInfo.token}`,
       },
@@ -349,7 +349,7 @@ export const payOrder = (order, paymentResult) => async (dispatch, getState) => 
     } = getState();
     try {
       const { data } = axios.put(
-        `http://localhost:5000/order/pay/${order._id}`,
+        `/order/pay/${order._id}`,
         paymentResult,
         {
           headers: { Authorization: `Bearer ${userInfo.token}` },

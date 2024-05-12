@@ -10,7 +10,7 @@ import { LineOutlined, WechatOutlined } from '@ant-design/icons';
 let socket;
 
 function AppChat(props) {
-  const ENDPOINT = "http://localhost:5000";
+  const ENDPOINT = "";
   const [messages, setMessages] = useState([]);
   const [openChat, setOpenChat] = useState(false)
   const { userInfo } = useSelector((state) => state.userSignin)
@@ -18,7 +18,7 @@ function AppChat(props) {
   useEffect(() => {
     const getAllMessageByConversation = async () => {
       const {data}  = await axios.get(
-        `http://localhost:5000/chat/message?idUser=${userInfo._id}`
+        `/chat/message?idUser=${userInfo._id}`
       );
       setMessages(data.messageList);
     }
@@ -69,7 +69,7 @@ function AppChat(props) {
           idConversation: conversation._id,
         };
         console.log(payload)
-        const {data} = await axios.post('http://localhost:5000/chat/save', payload);
+        const {data} = await axios.post('/chat/save', payload);
         console.log(data)
         socket.emit('chat', data);
       });
@@ -83,7 +83,7 @@ function AppChat(props) {
         idConversation,
       };
       console.log(payload, 'sdbhuca')
-      const {data} = await axios.post('http://localhost:5000/chat/save', payload)
+      const {data} = await axios.post('/chat/save', payload)
       console.log(data)
       socket.emit('chat', data);
     } 

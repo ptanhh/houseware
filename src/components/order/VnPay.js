@@ -13,7 +13,7 @@ export default function VnPay() {
     };
 
     const { data } = await axios.post(
-      "http://localhost:5000/payment/create",
+      "/payment/create",
       OrderPaid
     );
 

@@ -5,7 +5,7 @@ import axios from "axios";
 export const createOrderGhn = (orderId) => async (dispatch) => {
   try {
     const { data } = await axios.post(
-      `http://localhost:5000/order/update/${orderId}`
+      `/order/update/${orderId}`
     );
     dispatch({ type: "CREATE_ORDER_GHN", payload: data });
   } catch (error) {
@@ -17,7 +17,7 @@ export const createOrderGhn = (orderId) => async (dispatch) => {
 export const PrintOrderGhn = (orderId) => async (dispatch) => {
   try {
     const { data } = await axios.get(
-      `http://localhost:5000/order/print/${orderId}`
+      `/order/print/${orderId}`
     );
     console.log(data);
       window.open(data)

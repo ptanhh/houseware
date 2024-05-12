@@ -14,7 +14,7 @@ function GrindersProduct(props) {
     useEffect(() => {
         async function FetchApi(){
             try {
-                const {data} = await axios.get(`http://localhost:5000/products/${name}`)
+                const {data} = await axios.get(`/products/${name}`)
                 setHotGrinderProduct(data)
             } catch (error) {
                 console.log(error)
