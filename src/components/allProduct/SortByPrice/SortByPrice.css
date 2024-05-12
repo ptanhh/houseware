@@ -1,0 +1,32 @@
+.sort-price{
+    position: relative;
+    margin-top: 1rem;
+    padding: .3rem 0;
+
+    cursor: pointer;
+    border: 1px solid #eee;
+    width: 150px;
+}
+.sort-price-list{
+    position: absolute;
+    box-shadow: 0 2px 20px rgb(0 0 0 / 50%);
+
+    width: 150px;
+    background: white;
+
+    z-index: 11;
+}
+.sort-price-list-item{
+    cursor: pointer;
+    padding: .5rem 1rem;
+    font-size: 14px;
+    font-weight: 400;
+}
+.sort-price-list-item:hover span{
+    color: #a77743;
+    transition: .3s;
+}
+
+.sort-price-title {
+    margin-left: 10px;
+}

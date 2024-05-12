@@ -1,0 +1,125 @@
+.admin-user span {
+    display: flex;
+    padding: 1rem;
+    font-size: 20px;
+    font-weight: 600;
+    color: #6b6b6b;
+}
+
+.admin-user-list {
+    background: white;
+    margin: 0 .5rem 0 1rem;
+    color: #6b6b6b;
+    padding: 1rem;
+    font-weight: 400;
+
+    border-radius: 4px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+table {
+    width: 100%;
+    text-align: left;
+    padding: 1rem;
+}
+
+table th {
+    color: #6b6b6b;
+    font-size: 18px;
+    font-weight: 600;
+    background: #f9f9f9;
+    padding: .5rem 0;
+    min-width: 30px;
+}
+
+table td {
+    padding: .5rem 0;
+    font-size: 16px;
+}
+
+tr .delete-user {
+    width: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+    padding: 0;
+}
+
+tr .delete-user span {
+    border-radius: 50%;
+}
+
+tr .delete-user:hover span {
+    color: rgb(223, 28, 28);
+    transition: .3s;
+}
+
+.admin-create>span {
+    display: flex;
+    padding: 1rem;
+    font-size: 20px;
+    font-weight: 600;
+    color: #6b6b6b;
+}
+
+.admin-create-user {
+    display: flex;
+    flex-direction: column;
+    background: white;
+    margin: 0rem .5rem 1rem 1rem;
+    padding: 1rem;
+}
+
+.admin-create-user input,
+select {
+    margin-bottom: 1rem;
+    padding: .5rem 1rem;
+    font-size: 14px;
+    border: 1px solid #333;
+
+    width: 100%;
+}
+
+.admin-create-user span {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.admin-create-user button {
+    background: white;
+    color: #333;
+    font-size: 16px;
+    font-weight: 600;
+    padding: .7rem 5rem;
+    border: 1px solid #333;
+    border-radius: 50px;
+    outline: none;
+    cursor: pointer;
+}
+
+.admin-create-user button:hover {
+    background: #a77743;
+    color: white;
+    border: none;
+    transition: .3s;
+}
+
+.update-user {
+    width: 20px;
+}
+
+.update-user :hover{
+    color: #a77743;
+}
+
+.admin-user-list .pagination {
+    padding: 1rem 0;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.admin-user-list .pagination span {
+    display: block;
+    padding: 0;
+    font-size: 14px;
+    font-weight: 0;
+}
