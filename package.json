@@ -53,5 +53,5 @@
     "not dead",
     "not op_mini all"
   ],
-  "proxy": "https://backend-houseware.onrender.com/"
+  "proxy": "http://localhost:5000"
 }
