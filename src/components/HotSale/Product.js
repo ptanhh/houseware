@@ -1,9 +1,9 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import {AddToCart} from '../../actions/CartAction'
-import {Link} from 'react-router-dom'
-import {formatPrice} from '../../untils/index'
-import { message} from 'antd';
+import { AddToCart } from '../../actions/CartAction'
+import { Link } from 'react-router-dom'
+import { formatPrice } from '../../untils/index'
+import { message } from 'antd';
 
 function Product(props) {
     const { product } = props;
@@ -20,10 +20,10 @@ function Product(props) {
                 top: '2rem',
                 margin: '1rem 0'
             },
-          });
-      };
+        });
+    };
 
-    const  AddProductToCart = async (product) => {
+    const AddProductToCart = async (product) => {
         const action = AddToCart(product);
         await dispatch(action);
         success()
@@ -42,13 +42,13 @@ function Product(props) {
             </Link>
             {
                 product.percentDiscount >= 5 ? (<div className="discount">
-                <p>{product.percentDiscount}%</p>
-            </div>) : ''
+                    <p>{product.percentDiscount}%</p>
+                </div>) : ''
             }
             <div className="buy">
-                <Link to="" onClick={(e) => {AddProductToCart(product)}}> Mua Ngay</Link>
+                <Link to="" onClick={(e) => { AddProductToCart(product) }}> Mua Ngay</Link>
             </div>
-    
+
         </div>
     );
 }
